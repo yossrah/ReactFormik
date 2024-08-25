@@ -24,19 +24,19 @@ const Login = () => {
         //.then(data => console.log('login response:', data))
       },
       // validation rules
-      validate:values=>{
-        const errors = {}
-        if (!values.username) {
-          errors.username = 'Username is required'
-        }
-        if (!values.password) {
-          errors.password = 'Password is required'
-        }
-        if (!values.channel) {
-          errors.channel = 'Channel is required'
-        }
-        return errors
-      },
+      // validate:values=>{
+      //   const errors = {}
+      //   if (!values.username) {
+      //     errors.username = 'Username is required'
+      //   }
+      //   if (!values.password) {
+      //     errors.password = 'Password is required'
+      //   }
+      //   if (!values.channel) {
+      //     errors.channel = 'Channel is required'
+      //   }
+      //   return errors
+      // },
     //yup is for object schema validation
       validationSchema: Yup.object({
         username: Yup.string().required('Username is required'),
@@ -51,7 +51,7 @@ const Login = () => {
       {/*formik stores the visited information in the form in object called touched*/}
       <h1>Login</h1>
       <div className='form-control'>
-      <label>Username</label>
+      <label htmlFor='username'>Username</label>
       <input type="text" name="username" placeholder="Username" 
       onChange={formik.handleChange} value={formik.values.username} onBlur={formik.handleBlur} />
       {formik.touched.username && formik.errors.username? <div>{formik.errors.username}</div>:null}
