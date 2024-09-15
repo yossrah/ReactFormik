@@ -71,6 +71,7 @@ const Login = () => {
       
       </div>
       <button type="submit">Login</button>
+      <button type="reset">Reset</button>
       </form>
     </>
   )

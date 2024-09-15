@@ -31,6 +31,7 @@ const Register = () => {
       username: Yup.string().required('Username is required'),
       password: Yup.string().required('Password is required').min(8, 'Password must be at least 8 characters long'),
       email: Yup.string().email('Invalid email format').required('Email is required'),
+      confirmPassword: Yup.string().required('Password must be at least'),
       social: Yup.object({
         fb: Yup.string().url('Invalid URL format for Facebook'),
         linkedin: Yup.string().url('Invalid URL format for LinkedIn'),
@@ -78,7 +79,11 @@ const Register = () => {
         <div className='form-control'>
         <label>Confirm Password</label>
         <Field type="password" name="confirmPassword" placeholder="Confirm Password" />
-        <ErrorMessage name='confirmPassword'/>
+        <ErrorMessage name='confirmPassword'>
+        {(errorMssg)=>{
+          return <TextError>{errorMssg}</TextError>
+        }}
+        </ErrorMessage>
         </div>
         <div className='form-control'>
         <label>Description</label>
