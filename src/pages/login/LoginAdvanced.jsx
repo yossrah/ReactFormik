@@ -10,7 +10,7 @@ const LoginAdvanced = () => {
     }
     const onSubmit=(values, onSubmitProps)=>{
         console.log('loginnnnn',values)
-        onSubmitProps.resetForm()
+        onSubmitProps.resetForm() //clear form data
     }
     const validationSchema=yup.object({
         email: yup.string().email('Invalid email format').required('Email is required'),

@@ -31,8 +31,8 @@ const Register = () => {
       username: Yup.string().required('Username is required'),
       password: Yup.string().required('Password is required').min(8, 'Password must be at least 8 characters long'),
       email: Yup.string().email('Invalid email format').required('Email is required'),
-      confirmPassword: Yup.string().required('Password must be at least'),
-      social: Yup.object({
+      confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match').required('Confirm password is required'),
+    social: Yup.object({
         fb: Yup.string().url('Invalid URL format for Facebook'),
         linkedin: Yup.string().url('Invalid URL format for LinkedIn'),
       }),
